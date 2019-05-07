@@ -1,0 +1,98 @@
+{
+    "title": "EVEMarketer Marketstat",
+    "description": "EVEMarketer Marketstat API is almost compatible with EVE-Central's Marketstat API.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/evemarketer.com/1.0.1/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.evemarketer.com/ec",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "get_marketstat": {
+            "main": "./lib/actions/get_marketstat.js",
+            "title": "XML Marketstat",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_marketstat.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_marketstat": {
+            "main": "./lib/actions/post_marketstat.js",
+            "title": "XML Marketstat",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_marketstat.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_marketstat_json": {
+            "main": "./lib/actions/get_marketstat_json.js",
+            "title": "JSON Marketstat",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_marketstat_json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_marketstat_json": {
+            "main": "./lib/actions/post_marketstat_json.js",
+            "title": "JSON Marketstat",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_marketstat_json.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

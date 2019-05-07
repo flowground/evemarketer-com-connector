@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "typeid": {
+            "required": true,
+            "type": "array",
+            "items": {
+                "format": "int32",
+                "type": "integer"
+            }
+        },
+        "regionlimit": {
+            "type": "integer",
+            "format": "int32"
+        },
+        "usesystem": {
+            "type": "integer",
+            "format": "int32"
+        }
+    }
+}

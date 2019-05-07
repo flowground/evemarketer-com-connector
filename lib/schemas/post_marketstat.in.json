@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "typeid": {
+                    "description": "TypeID. Multiple TypeIDs can be specified in the following format (up to 200 TypeIDs per request):\ntypeid=34&typeid=35 or typeid=34,35\n",
+                    "type": "array",
+                    "items": {
+                        "format": "int32",
+                        "type": "integer"
+                    }
+                },
+                "regionlimit": {
+                    "description": "Limit the statistics to a single region.",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "usesystem": {
+                    "description": "Limit the statistics to a single solar system.",
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "required": [
+                "typeid"
+            ]
+        }
+    }
+}
